@@ -343,7 +343,6 @@
     border-radius: var(--radius-md);
     padding: 24px;
     box-shadow: var(--shadow-sm);
-    display: block;
     transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.3s;
   }
 
@@ -365,23 +364,40 @@
     color: var(--text-secondary);
   }
 
-  .project-card .link-hint {
+  .project-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+
+  .project-actions a {
     display: inline-flex;
     align-items: center;
-    gap: 4px;
-    margin-top: 14px;
+    gap: 6px;
     font-size: 13px;
     font-weight: 600;
-    color: var(--accent);
+    padding: 8px 14px;
+    border-radius: 980px;
+    transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), background 0.2s;
   }
 
-  .project-card .link-hint svg {
-    width: 12px;
-    height: 12px;
-    transition: transform 0.3s var(--ease);
+  .project-actions .visit-btn {
+    background: var(--accent);
+    color: #fff;
   }
 
-  .project-card:hover .link-hint svg { transform: translate(2px, -2px); }
+  .project-actions .visit-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0, 113, 227, 0.3); }
+
+  .project-actions .repo-btn {
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+  }
+
+  .project-actions .repo-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+
+  .project-actions svg { width: 12px; height: 12px; }
 
   /* ---------- Community ---------- */
 
@@ -545,26 +561,37 @@
     <span class="eyebrow">Work</span>
     <h2>Selected projects</h2>
     <div class="project-grid">
-      <a class="project-card" href="https://github.com/nirmal-ai9/JavaScript-challenges" target="_blank" rel="noopener">
+      <div class="project-card">
         <h3>JavaScript Challenges</h3>
         <p>A terminal-based collection of JavaScript challenges — solve problems, auto-generate solution templates, run tests, and contribute solutions through pull requests.</p>
-        <span class="link-hint">View repo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>
-      </a>
-      <a class="project-card" href="https://github.com/nirmal-ai9/TypeFlow" target="_blank" rel="noopener">
+        <div class="project-actions">
+          <a class="repo-btn" href="https://github.com/nirmal-ai9/JavaScript-challenges" target="_blank" rel="noopener">View repo</a>
+        </div>
+      </div>
+      <div class="project-card">
         <h3>TypeFlow</h3>
         <p>Practice typing smarter, faster, and more accurately — a browser-based typing speed test with a clean, distraction-free interface.</p>
-        <span class="link-hint">View repo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>
-      </a>
-      <a class="project-card" href="https://github.com/nirmal-ai9/Inflation-calculator" target="_blank" rel="noopener">
+        <div class="project-actions">
+          <a class="visit-btn" href="https://nirmal-ai9.github.io/TypeFlow/" target="_blank" rel="noopener">Visit site</a>
+          <a class="repo-btn" href="https://github.com/nirmal-ai9/TypeFlow" target="_blank" rel="noopener">View repo</a>
+        </div>
+      </div>
+      <div class="project-card">
         <h3>Inflation Calculator</h3>
         <p>A modern web-based inflation calculator that shows how money changes in value over time using compound inflation.</p>
-        <span class="link-hint">View repo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>
-      </a>
-      <a class="project-card" href="https://github.com/nirmal-ai9/Chess-clock" target="_blank" rel="noopener">
+        <div class="project-actions">
+          <a class="visit-btn" href="https://nirmal-ai9.github.io/Inflation-calculator/" target="_blank" rel="noopener">Visit site</a>
+          <a class="repo-btn" href="https://github.com/nirmal-ai9/Inflation-calculator" target="_blank" rel="noopener">View repo</a>
+        </div>
+      </div>
+      <div class="project-card">
         <h3>Chess Clock</h3>
         <p>Chess clock for over-the-board play — monochrome flip theme, custom time controls, Fischer increment, single HTML file.</p>
-        <span class="link-hint">View repo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>
-      </a>
+        <div class="project-actions">
+          <a class="visit-btn" href="https://nirmal-ai9.github.io/Chess-clock/" target="_blank" rel="noopener">Visit site</a>
+          <a class="repo-btn" href="https://github.com/nirmal-ai9/Chess-clock" target="_blank" rel="noopener">View repo</a>
+        </div>
+      </div>
     </div>
   </section>
 
