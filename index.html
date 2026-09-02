@@ -207,24 +207,14 @@
 
   .hero-typing {
     margin-top: 32px;
-    height: 34px;
-    font-size: 19px;
-    font-weight: 600;
-    color: var(--accent-pink);
-    font-variant-ligatures: none;
-    text-shadow: var(--glow-pink);
+    display: flex;
   }
 
-  .hero-typing .cursor {
-    display: inline-block;
-    width: 2px;
-    background: var(--accent-pink);
-    margin-left: 2px;
-    animation: blink 0.9s step-end infinite;
-    box-shadow: var(--glow-pink);
+  .hero-typing img {
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 6px rgba(255, 0, 255, 0.4));
   }
-
-  @keyframes blink { 50% { opacity: 0; } }
 
   .hero-actions {
     margin-top: 48px;
@@ -299,16 +289,6 @@
     mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
     -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
   }
-
-  /* ---------- Reveal on scroll ---------- */
-
-  .reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
-  }
-
-  .reveal.is-visible { opacity: 1; transform: translateY(0); }
 
   /* ---------- About ---------- */
 
@@ -637,6 +617,7 @@
     .hero-text-col { order: 2; } /* Text below image on small screens */
     .hero-image-col { order: 1; }
     .hero-actions { justify-content: center; }
+    .hero-typing { justify-content: center; }
     .about-grid { grid-template-columns: 1fr; }
     .project-grid { grid-template-columns: 1fr; }
     .stats-grid { grid-template-columns: 1fr; }
@@ -668,7 +649,12 @@
         <span class="avatar-wave">👋</span>
         <h1>Hi, I'm Nirmal</h1>
         <p class="hero-role">Frontend & UI Developer | Hacking Web Realms | Aspiring Full-Stack</p>
-        <div class="hero-typing" id="typing"><span id="typing-text"></span><span class="cursor">&nbsp;</span></div>
+        <div class="hero-typing">
+          <img
+            src="https://readme-typing-svg.demolab.com?font=Space+Grotesk&weight=600&size=20&pause=1000&color=FF00FF&background=00000000&center=false&vCenter=true&width=520&height=40&lines=Compiling+Frontend+%26+UI+protocols...;Deploying+Single-File+Web+Modules...;Injecting+Clean+Code+%26+Core+Design...;Accessing+Backend+Development+Nodes..."
+            alt="Typing animation of Nirmal's focus areas"
+          />
+        </div>
         <div class="hero-actions">
           <a class="btn btn-primary" href="mailto:nirmal942894@gmail.com">Initialize mail</a>
           <a class="btn btn-secondary" href="https://discord.gg/dKa2wEJGF9" target="_blank" rel="noopener">Connect Discord</a>
@@ -683,7 +669,7 @@
     </div>
   </section>
 
-  <section id="about" class="reveal">
+  <section id="about">
     <span class="eyebrow">Data segment_</span>
     <h2>Design first. Function always.</h2>
     <div class="about-grid">
@@ -709,7 +695,7 @@
     </div>
   </section>
 
-  <section id="skills" class="reveal">
+  <section id="skills">
     <span class="eyebrow">Hacker Arsenal_</span>
     <h2>Technical loadout</h2>
     <div class="skills-group">
@@ -732,7 +718,7 @@
     </div>
   </section>
 
-  <section id="projects" class="reveal">
+  <section id="projects">
     <span class="eyebrow">Projects segment_</span>
     <h2>Selected work logs</h2>
     <div class="project-grid">
@@ -770,7 +756,7 @@
     </div>
   </section>
 
-  <section id="community" class="reveal">
+  <section id="community">
     <span class="eyebrow">Network segment_</span>
     <h2>Build in public</h2>
     <div class="community-card">
@@ -785,7 +771,7 @@
     </div>
   </section>
 
-  <section id="stats" class="reveal">
+  <section id="stats">
     <span class="eyebrow">Analytics segment_</span>
     <h2>GitHub activity feed</h2>
     <div class="stats-grid">
@@ -806,48 +792,6 @@
 <footer>
   Constructed by Nirmal::ai9 · Frontend & UI Developer · Cyberpunk ed.
 </footer>
-
-<script>
-  // Typing effect
-  const phrases = [
-    "Compiling Frontend & UI protocols...",
-    "Deploying Single-File Web Modules...",
-    "Injecting Clean Code & Core Design...",
-    "Accessing Backend Development Nodes..."
-  ];
-  const el = document.getElementById('typing-text');
-  let phraseIndex = 0, charIndex = 0, deleting = false;
-
-  function tick() {
-    const current = phrases[phraseIndex];
-    el.textContent = deleting ? current.slice(0, charIndex--) : current.slice(0, charIndex++);
-
-    let delay = deleting ? 40 : 65; // Adjust speed for cyberpunk feel
-
-    if (!deleting && charIndex === current.length + 1) {
-      delay = 1400; // Pause at full text
-      deleting = true;
-    } else if (deleting && charIndex === 0) {
-      deleting = false;
-      phraseIndex = (phraseIndex + 1) % phrases.length;
-      delay = 350; // Pause at end of deletion
-    }
-    setTimeout(tick, delay);
-  }
-  tick();
-
-  // Scroll reveal
-  const revealEls = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  revealEls.forEach(section => observer.observe(section));
-</script>
 
 </body>
 </html>
